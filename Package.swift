@@ -11,8 +11,8 @@ let package = Package(
          .library(name: "FunctionLambda", targets: ["FunctionLambda"]),
 	],
     dependencies: [
-        .package(url: "https://github.com/swift-server/swift-aws-lambda-runtime.git", revision: "41c5eda"),
-		.package(url: "https://github.com/swift-server/swift-aws-lambda-events.git", revision: "0025b1a"),
+        .package(url: "https://github.com/swift-server/swift-aws-lambda-runtime.git", branch: "main"),
+		.package(url: "https://github.com/swift-server/swift-aws-lambda-events.git", branch: "main"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.20.0"),
     ],
     targets: [
