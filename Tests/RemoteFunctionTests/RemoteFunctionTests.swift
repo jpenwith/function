@@ -7,10 +7,10 @@
 
 import Foundation
 import Testing
-@testable import RemoteFunction
+@testable import Function
 
 @Test func testDoubleFunction() async throws {
-    struct DoubleFunction: RemoteFunction.Function {
+    struct DoubleFunction: Function {
         func execute(_ input: Int) async throws -> Int { input * 2 }
     }
     
@@ -19,7 +19,7 @@ import Testing
 }
 
 @Test func testStringCountFunction() async throws {
-    struct StringCountFunction: RemoteFunction.Function {
+    struct StringCountFunction: Function {
         func execute(_ input: String) async throws -> Int { input.count }
     }
     
@@ -28,7 +28,7 @@ import Testing
 }
 
 @Test func testStartOfDayFunction() async throws {
-    struct StartOfDayFunction: RemoteFunction.Function {
+    struct StartOfDayFunction: Function {
         func execute(_ input: Date) async throws -> Date? { Calendar.autoupdatingCurrent.startOfDay(for: input) }
     }
 
