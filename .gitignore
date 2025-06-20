@@ -1,0 +1,13 @@
+.DS_Store
+/.build
+/Packages
+xcuserdata/
+DerivedData/
+.swiftpm
+.netrc
+.aider*
+
+event.json
+body.json
+.env
+.envrc

@@ -1,0 +1,7 @@
+lambda_local() {
+  curl -v --data @event.json http://127.0.0.1:7000/invoke | jq '.body | fromjson | .response.body | fromjson'
+}
+
+lambda_remote() {
+  curl -v --header "Content-type: application/json" --header "Authorization: Bearer $(me_read_env_var .env API_GUARD_AUTHENTICATION_TOKEN)" --data @body.json "$(me_read_env_var .env API_GUARD_URL)" | jq '.response.body | fromjson'
+}

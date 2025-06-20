@@ -1,0 +1,74 @@
+{
+  "version": "2.0",
+  "routeKey": "ANY /example",
+  "rawPath": "/example",
+  "rawQueryString": "param1=value1&param2=value2",
+  "cookies": ["sessionId=abc123"],
+  "headers": {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer we3Fohj2ayihei5geangeihahng2chu6",
+  },
+  "queryStringParameters": {
+    "param1": "value1",
+    "param2": "value2"
+  },
+  "pathParameters": {
+    "id": "123"
+  },
+  "requestContext": {
+    "accountId": "123456789012",
+    "apiId": "api-id",
+    "domainName": "example.com",
+    "domainPrefix": "example",
+    "stage": "prod",
+    "requestId": "id-123",
+    "http": {
+      "method": "POST",
+      "path": "/",
+      "protocol": "HTTP/1.1",
+      "sourceIp": "192.0.2.1",
+      "userAgent": "curl/7.64.1"
+    },
+    "authorizer": {
+      "jwt": {
+        "claims": {
+          "sub": "user123"
+        },
+        "scopes": ["read"]
+      },
+      "iam": {
+        "accessKey": "AKIA...",
+        "accountId": "123456789012",
+        "callerId": "caller",
+        "cognitoIdentity": {
+          "amr": ["password"],
+          "identityId": "us-east-1:example-id",
+          "identityPoolId": "us-east-1:example-pool"
+        },
+        "principalOrgId": "o-exampleorgid",
+        "userArn": "arn:aws:iam::123456789012:user/User",
+        "userId": "user123"
+      },
+      "lambda": null
+    },
+    "authentication": {
+      "clientCert": {
+        "clientCertPem": "-----BEGIN CERTIFICATE-----...",
+        "subjectDN": "CN=example.com",
+        "issuerDN": "CN=Example CA",
+        "serialNumber": "1234567890",
+        "validity": {
+          "notBefore": "2023-01-01T00:00:00Z",
+          "notAfter": "2025-01-01T00:00:00Z"
+        }
+      }
+    },
+    "time": "09/May/2025:10:00:00 +0000",
+    "timeEpoch": 1746794400000
+  },
+  "stageVariables": {
+    "env": "production"
+  },
+  "body": "{\"name\":\"John\"}",
+  "isBase64Encoded": false
+}
