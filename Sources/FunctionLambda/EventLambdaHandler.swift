@@ -14,14 +14,13 @@ import Function
 
 /// A Lambda handler that adapts a RemoteFunction into an AWS Lambda handler.
 /// It decodes incoming events into the function's Input type using the provided event decoder,
-/// invokes the function via the given client and transport,
+/// invokes the function,
 /// and encodes the function's Output type into a Lambda response using the provided output encoder.
 /// - generic parameters:
 ///   - Function: The RemoteFunction.Function type.
-///   - Transport: The RemoteFunction.Transport type.
 ///   - OutputEncoder: Encoder for serializing the function output.
 ///   - EventDecoder: Decoder for deserializing the Lambda event into function input.
-public struct EventLambdaHandler<F, Transport, OutputEncoder, EventDecoder>: StreamingLambdaHandler
+public struct EventLambdaHandler<F, OutputEncoder, EventDecoder>: StreamingLambdaHandler
 where
     F: Function,
     OutputEncoder: AWSLambdaRuntime.LambdaOutputEncoder,

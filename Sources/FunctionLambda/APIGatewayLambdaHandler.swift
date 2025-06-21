@@ -14,7 +14,7 @@ import Function
 
 /// A Lambda handler that adapts a RemoteFunction into an AWS API Gateway handler.
 /// It decodes incoming API Gateway V2 request events into the function’s Input type using the provided request decoder and event decoder,
-/// invokes the function via the given client and transport,
+/// invokes the function,
 /// and encodes the function’s output into an API Gateway V2 response using the provided output encoder and response encoder.
 /// - generic parameters:
 ///   - Function: The RemoteFunction.Function type.

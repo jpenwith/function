@@ -53,10 +53,6 @@ struct NameToAgeRemoteFunction: Function {
 }
 
 try await LambdaRuntime(
-    handler: FunctionLambda.APIGatewayLambdaHandler(
-        function: NameToAgeRemoteFunction(
-            client: .shared
-        )
-    )
+    handler: FunctionLambda.APIGatewayLambdaHandler(function: NameToAgeRemoteFunction(client: .shared))
 )
 .run()
