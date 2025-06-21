@@ -95,9 +95,22 @@ where
     }
 
     public mutating func handle(_ event: ByteBuffer, responseWriter: some LambdaResponseStreamWriter, context: LambdaContext) async throws {
-        try await internalHandler.handle(event, responseWriter: responseWriter, context: context)
+        do {
+            try await internalHandler.handle(event, responseWriter: responseWriter, context: context)
+        }
+        catch {
+            let errorOutput = ErrorOutput(error: error.localizedDescription)
+            
+            let errorOutputBuffer = try JSONEncoder(outputFormatting: .prettyPrinted)
+                .encodeAsByteBuffer(errorOutput, allocator: .init())
+            
+            try await responseWriter.writeAndFinish(errorOutputBuffer)
+        }
     }
 
+    public struct ErrorOutput: Codable {
+        public let error: String
+    }    
 }
 
 /// Internal API Gateway handler that adapts a decoded API Gateway request into the function invocation.

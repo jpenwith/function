@@ -14,6 +14,8 @@ let package = Package(
         .package(url: "https://github.com/swift-server/swift-aws-lambda-runtime.git", branch: "main"),
 		.package(url: "https://github.com/swift-server/swift-aws-lambda-events.git", branch: "main"),
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.20.0"),
+
+        .package(url: "https://github.com/jpenwith/swift-utils.git", from: "0.1.3"),
     ],
     targets: [
         .target(
@@ -29,6 +31,7 @@ let package = Package(
                 "Function",
 
                 .product(name: "AWSLambdaRuntime", package: "swift-aws-lambda-runtime"),
+                .product(name: "SwiftUtils", package: "swift-utils"),
             ]
         ),
 
