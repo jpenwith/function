@@ -99,7 +99,8 @@ where
             try await internalHandler.handle(event, responseWriter: responseWriter, context: context)
         }
         catch {
-            let errorOutput = ErrorOutput(error: error.localizedDescription)
+//            let errorOutput = ErrorOutput(error: error.localizedDescription)
+            let errorOutput = ErrorOutput(error: "\(error)")
             
             let errorOutputBuffer = try JSONEncoder(outputFormatting: .prettyPrinted)
                 .encodeAsByteBuffer(errorOutput, allocator: .init())
